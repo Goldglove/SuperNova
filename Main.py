@@ -1,10 +1,22 @@
-#Main class for the game... Will work on gettign multiple files with classes working tomorrow.
-class SuperNova:
-    #Different functions and methods in main class.
-    def printHello():
-        return ("Hello World!")
+import pygame
 
-#Where the main loop will be in the game.
+game_running = True
+
+class main:
+    """The Main PyMan Class - This class handles the main 
+    initialization and creating of the Game."""
+    
+	def __init__(self, width=640,height=480):
+		pygame.init()
+        """Set the window Size"""
+		self.width = width
+		self.height = height
+        """Create the Screen"""
+		self.screen = pygame.display.set_mode((self.width, self.height))
+
 if __name__ == "__main__":
-    #Supernova tells which class to take from .printHello tells what function in the class to use.
-    print(SuperNova.printHello())
+	while game_running:	
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT: 
+				sys.exit()
+		main()
