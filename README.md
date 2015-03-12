@@ -1,2 +1,2 @@
-# SuperNova
-Space based RPG
+# SuperNovaCleaned
+Refactoring and cleaning of our game
