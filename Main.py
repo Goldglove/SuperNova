@@ -37,5 +37,5 @@ if __name__ == "__main__":
                 pg.quit()
                 sys.exit()
         main.Draw()
-        pg.display.flip() 
         pg.time.delay(60)
+        pg.display.flip() 
