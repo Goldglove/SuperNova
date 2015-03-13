@@ -19,6 +19,8 @@ screen = pg.display.set_mode((600, 480))
 
 #The Main Class - This class handles the main initialization and creating of the Game.
 class main:
+    global x
+    x = 0
     def __init__(self):
         pg.init()
         pg.display.set_caption("SuperNova")
@@ -30,7 +32,14 @@ class main:
 
     def Draw():
         screen.fill(white)
-        player1.Draw(screen)
+        player1.Draw()
+
+    def KeyListener():
+        key = pg.key.get_pressed()
+        if key == pg.K_a:
+            player1.x -= 10
+        if key == pg.K_d:
+            player1.x += 10
         
 if __name__ == "__main__":
     main()
@@ -40,7 +49,7 @@ if __name__ == "__main__":
                 pg.quit()
                 sys.exit()
         main.Draw()
-        
+        main.KeyListener()
         pg.time.delay(60)
         pg.display.flip() 
 
