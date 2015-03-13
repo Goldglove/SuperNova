@@ -1,4 +1,5 @@
 import pygame as pg
+import GameObject
 import sys, os
 
 game_running = True
@@ -24,10 +25,12 @@ class main:
         window_icon_path = os.getcwd() + '\\Images\\window_icon.jpg'
         window_icon = pg.image.load(window_icon_path)
         pg.display.set_icon(window_icon)
+        global player1
+        player1 = GameObject.GameObject("placeHolderShip.png", screen, pg)
 
     def Draw():
         screen.fill(white)
-        pg.draw.line(screen, black, (100, 100), (300, 300), 5)
+        player1.Draw(screen)
         
 if __name__ == "__main__":
     main()
@@ -37,5 +40,8 @@ if __name__ == "__main__":
                 pg.quit()
                 sys.exit()
         main.Draw()
+        
         pg.time.delay(60)
         pg.display.flip() 
+
+
