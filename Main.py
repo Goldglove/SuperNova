@@ -28,7 +28,7 @@ class main:
         global player1
         global weapon1
         player1 = GameObject.GameObject("Ships\\placeHolderShip.png", screen, pg)
-        weapon1 = Weapons.GameObject.GameObject("wep1.png", screen, pg)
+        weapon1 = Weapons.Weapons("wep1.png", screen, pg)
 
     def Draw():
         screen.fill(white)
