@@ -10,7 +10,7 @@ class GameObject:
         global screen
         screen = Screen
         pg = pygame
-        self.ship_path = os.getcwd() + '\\Images\\Ships\\' + pic_name
+        self.ship_path = os.getcwd() + '\\Images\\' + pic_name
         global game_object
         game_object = pg.image.load(self.ship_path)
         self.x = 20
@@ -30,3 +30,12 @@ class GameObject:
 
     def Draw(self):
         screen.blit(game_object, (self.x, self.y))
+
+    def DrawSprite(self):
+        
+
+class Sprites(py.sprite.Sprite):
+
+    def ___init__(self,x,y)
+        
+        

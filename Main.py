@@ -1,5 +1,5 @@
 import pygame as pg
-import GameObject
+import GameObject, Weapons
 import sys, os
 
 game_running = True
@@ -26,15 +26,18 @@ class main:
         window_icon = pg.image.load(window_icon_path)
         pg.display.set_icon(window_icon)
         global player1
-        player1 = GameObject.GameObject("placeHolderShip.png", screen, pg)
+        global weapon1
+        player1 = GameObject.GameObject("Ships\\placeHolderShip.png", screen, pg)
+        weapon1 = Weapons.GameObject.GameObject("Weapons\\04 - Heavy Particle Projection Cannon.png")
 
     def Draw():
         screen.fill(white)
         player1.Draw()
+        weapon1.Draw()
         
 if __name__ == "__main__":
     main()
-    while game_running:
+    while game_running:   
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
