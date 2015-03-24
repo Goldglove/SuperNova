@@ -11,7 +11,7 @@ class Weapons():
     global num_slides
     global slide_width
     global height
-    def __init__(self, pic_name):
+    def __init__(self, pic_name, width, Height, slides):
         global game_object
         global x
         global y
@@ -23,10 +23,10 @@ class Weapons():
         game_object = pg.image.load(ship_path)
         x = 20
         y = 0
-        height = 79
-        num_slides = 5
+        height = Height
+        num_slides = slides - 1
         cImage = 1
-        slide_width = 20
+        slide_width = width
 
     def Animate():
         global cImage

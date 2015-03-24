@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pygame as pg
 import GameObject, Weapons, Player, Enemy
 import sys, os
@@ -34,7 +35,8 @@ class main:
         global weapon1
         global enemy1
         enemy1 = Enemy.Enemy()
-        weapon1 = Weapons.Weapons("autocannon3.png")
+        #(pic name, slide width, slide height, num slides)
+        weapon1 = Weapons.Weapons("autocannon3.png", 20, 79, 6)
         player1 = Player.Player()
 
     def Draw():
@@ -80,4 +82,16 @@ if __name__ == "__main__":
             main.Draw()
          
 
+=======
+#Main class for the game... Will work on gettign multiple files with classes working tomorrow.
+class SuperNova:
+    #Different functions and methods in main class.
+    def printHello():
+        return ("Hello World!")
+
+#Where the main loop will be in the game.
+if __name__ == "__main__":
+    #Supernova tells which class to take from .printHello tells what function in the class to use.
+    print(SuperNova.printHello())
+>>>>>>> origin/master
 
