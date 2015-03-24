@@ -16,6 +16,8 @@ pink = (255,200,200)
 pg.init()
 #Create the Screen
 screen = pg.display.set_mode((600, 480))
+global pause
+pause = 1
 
 #The Main Class - This class handles the main initialization and creating of the Game.
 class main:
@@ -41,32 +43,36 @@ class main:
         Enemy.Enemy.Draw(screen)
         pg.time.delay(60)
         pg.display.flip()
-### NOTE:
-###         No matter what we call to draw, it will draw the last called object
-###         Here I call to draw player1, but because weapon1 was last called it is
-###         drawn instead.
-### SOLUTION:
-###         We are currently only blitting one gameobject
-###         per main loop (look in GameObject.py\\line:16), we need to blit multiple
-###         objects per loop. Changes to GameObject.py are needed.
+
+    def Quit():
+        pg.quit()
+        sys.exit()
+    def pause():
+        global pause
+        pause+=1
 
     def InputEvents():
+        global pause
         for event in pg.event.get():
             if event.type == pg.QUIT:
-                pg.quit()
-                sys.exit()
+                main.Quit()
             elif event.type == pg.KEYDOWN:
-                if event.key == pg.K_a:
-                    Player.Player.SetXPosition(Player.Player.GetXPosition() - 10)
-                if event.key == pg.K_d:
-                    Player.Player.SetXPosition(Player.Player.GetXPosition() + 10)
-            #elif event.type == KEYUP:
+                try:
+                    key_list = {
+                        pg.K_a : lambda : Player.Player.SetXPosition(Player.Player.GetXPosition() - 10),
+                        pg.K_d : lambda : Player.Player.SetXPosition(Player.Player.GetXPosition() + 10),
+                        pg.K_SPACE : lambda : main.pause(),
+                        pg.K_ESCAPE : lambda : main.Quit()
+                    }[event.key]()
+                except KeyError:
+                    break
         
 if __name__ == "__main__":
     main()
     while game_running:
-        main.InputEvents()     
-        main.Draw()
+        main.InputEvents()
+        if pause % 2 == 1:     
+            main.Draw()
          
 
 
