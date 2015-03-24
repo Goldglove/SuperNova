@@ -1,5 +1,5 @@
 import pygame as pg
-import GameObject, Weapons
+import GameObject, Weapons, Player, Enemy
 import sys, os
 
 game_running = True
@@ -19,6 +19,9 @@ screen = pg.display.set_mode((600, 480))
 
 #The Main Class - This class handles the main initialization and creating of the Game.
 class main:
+    global player1
+    global weapon1
+    global enemy1
     def __init__(self):
         pg.init()
         pg.display.set_caption("SuperNova")
@@ -28,15 +31,14 @@ class main:
         global player1
         global weapon1
         global enemy1
-        player1 = GameObject.GameObject("Ships\\placeHolderShip.png", screen, pg)
-        enemy1 = GameObject.GameObject("Ships\\TestEnemyShip.png", screen, pg)
-        weapon1 = Weapons.Weapons("wep1.png", screen, pg)
+        enemy1 = Enemy.Enemy()
+        #weapon1 = Weapons.Weapons("wep1.png", screen, pg)
+        player1 = Player.Player()
 
     def Draw():
         screen.fill(white)
-        player1.Draw()
-        #enemy1.Draw()
-        #weapon1.Draw()
+        Player.Player.Draw(screen)
+        Enemy.Enemy.Draw(screen)
         pg.time.delay(60)
         pg.display.flip()
 ### NOTE:
@@ -55,9 +57,9 @@ class main:
                 sys.exit()
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_a:
-                    player1.SetXPosition(player1.GetXPosition() - 10)
+                    Player.Player.SetXPosition(Player.Player.GetXPosition() - 10)
                 if event.key == pg.K_d:
-                    player1.SetXPosition(player1.GetXPosition() + 10)
+                    Player.Player.SetXPosition(Player.Player.GetXPosition() + 10)
             #elif event.type == KEYUP:
         
 if __name__ == "__main__":
