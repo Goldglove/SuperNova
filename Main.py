@@ -34,16 +34,20 @@ class main:
         global weapon1
         global enemy1
         enemy1 = Enemy.Enemy()
-        #weapon1 = Weapons.Weapons("wep1.png", screen, pg)
+        weapon1 = Weapons.Weapons("autocannon3.png")
         player1 = Player.Player()
 
     def Draw():
         screen.fill(white)
         Player.Player.Draw(screen)
         Enemy.Enemy.Draw(screen)
+        Weapons.Weapons.Draw(screen)
         pg.time.delay(60)
         pg.display.flip()
 
+    def Update():
+        Weapons.Weapons.Animate()
+        
     def Quit():
         pg.quit()
         sys.exit()
@@ -71,7 +75,8 @@ if __name__ == "__main__":
     main()
     while game_running:
         main.InputEvents()
-        if pause % 2 == 1:     
+        if pause % 2 == 1:
+            main.Update()
             main.Draw()
          
 
