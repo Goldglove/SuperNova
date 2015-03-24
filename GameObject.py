@@ -30,12 +30,3 @@ class GameObject:
 
     def Draw(self):
         screen.blit(game_object, (self.x, self.y))
-
-    def DrawSprite(self):
-        
-
-class Sprites(py.sprite.Sprite):
-
-    def ___init__(self,x,y)
-        
-        

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import Main, GameObject
-
-class Weapons(GameObject):
-    def Blank():
-        return
-=======
 import Main, os, GameObject
 
 class Weapons():
@@ -17,4 +10,3 @@ class Weapons():
 
     def Draw():
         self.SelF.Draw()
->>>>>>> origin/master
