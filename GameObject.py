@@ -11,6 +11,7 @@ class GameObject:
         screen = Screen
         pg = pygame
         self.ship_path = os.getcwd() + '\\Images\\' + pic_name
+        #self.weapon_path = os.getcwd() + '\\Images\\Weapons\\' + pic_name
         global game_object
         game_object = pg.image.load(self.ship_path)
         self.x = 20

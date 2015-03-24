@@ -27,17 +27,28 @@ class main:
         pg.display.set_icon(window_icon)
         global player1
         global weapon1
+        global enemy1
         player1 = GameObject.GameObject("Ships\\placeHolderShip.png", screen, pg)
+        enemy1 = GameObject.GameObject("Ships\\TestEnemyShip.png", screen, pg)
         weapon1 = Weapons.Weapons("wep1.png", screen, pg)
 
     def Draw():
         screen.fill(white)
         player1.Draw()
-        weapon1.Draw()
+        #enemy1.Draw()
+        #weapon1.Draw()
         pg.time.delay(60)
         pg.display.flip()
+### NOTE:
+###         No matter what we call to draw, it will draw the last called object
+###         Here I call to draw player1, but because weapon1 was last called it is
+###         drawn instead.
+### SOLUTION:
+###         We are currently only blitting one gameobject
+###         per main loop (look in GameObject.py\\line:16), we need to blit multiple
+###         objects per loop. Changes to GameObject.py are needed.
 
-    def Events():
+    def InputEvents():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
@@ -52,7 +63,7 @@ class main:
 if __name__ == "__main__":
     main()
     while game_running:
-        main.Events()     
+        main.InputEvents()     
         main.Draw()
          
 
