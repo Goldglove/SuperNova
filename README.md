@@ -1,2 +1,2 @@
-# SuperNovaCleaned
-Refactoring and cleaning of our game
+# SuperNova
+# ISC3U

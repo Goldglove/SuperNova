@@ -28,16 +28,27 @@ class main:
         global player1
         global weapon1
         player1 = GameObject.GameObject("Ships\\placeHolderShip.png", screen, pg)
+<<<<<<< HEAD
         weapon1 = Weapons.GameObject.GameObject("Weapons\\04 - Heavy Particle Projection Cannon.png")
+=======
+        weapon1 = Weapons.Weapons("wep1.png", screen, pg)
+>>>>>>> origin/master
 
     def Draw():
         screen.fill(white)
         player1.Draw()
         weapon1.Draw()
+<<<<<<< HEAD
         
 if __name__ == "__main__":
     main()
     while game_running:   
+=======
+        pg.time.delay(60)
+        pg.display.flip()
+
+    def Events():
+>>>>>>> origin/master
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
@@ -48,9 +59,12 @@ if __name__ == "__main__":
                 if event.key == pg.K_d:
                     player1.SetXPosition(player1.GetXPosition() + 10)
             #elif event.type == KEYUP:
-                
+        
+if __name__ == "__main__":
+    main()
+    while game_running:
+        main.Events()     
         main.Draw()
-        pg.time.delay(60)
-        pg.display.flip() 
+         
 
 
