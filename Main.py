@@ -34,17 +34,19 @@ class main:
         global weapon1
         global enemy1
         global weapon2
+        Weapons.Weapons.InitArrays()
         enemy1 = Enemy.Enemy()
         #(pic name, slide width, slide height, num slides)
-        weapon1 = Weapons.Weapons("autocannon3.png", 20, 79, 6)
-        weapon2 = Weapons.Weapons("wep1.png", 26, 75, 7)
+        weapon1 = Weapons.Weapons.CreateWeapon("autocannon3.png", 20, 79, 6, 0, 3)
+        weapon2 = Weapons.Weapons.CreateWeapon("wep1.png", 26, 75, 7, 0, 12)
         player1 = Player.Player()
 
     def Draw():
         screen.fill(white)
         Player.Player.Draw(screen)
         Enemy.Enemy.Draw(screen)
-        Weapons.Weapons.Draw(screen, 20, 0)
+        Weapons.Weapons.Draw(screen, 20, 0, 1)
+        Weapons.Weapons.Draw(screen, 20, 200, 2)
         pg.time.delay(60)
         pg.display.flip()
 

@@ -15,7 +15,7 @@ class Enemy:
         game_object = pg.image.load(ship_path)
         x = 200
         y = 0
-
+		
     def SetXPosition(X):
         global x
         x = X
