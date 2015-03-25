@@ -33,16 +33,18 @@ class main:
         global player1
         global weapon1
         global enemy1
+        global weapon2
         enemy1 = Enemy.Enemy()
         #(pic name, slide width, slide height, num slides)
         weapon1 = Weapons.Weapons("autocannon3.png", 20, 79, 6)
+        weapon2 = Weapons.Weapons("wep1.png", 26, 75, 7)
         player1 = Player.Player()
 
     def Draw():
         screen.fill(white)
         Player.Player.Draw(screen)
         Enemy.Enemy.Draw(screen)
-        Weapons.Weapons.Draw(screen)
+        Weapons.Weapons.Draw(screen, 20, 0)
         pg.time.delay(60)
         pg.display.flip()
 
