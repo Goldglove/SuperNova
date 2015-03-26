@@ -69,7 +69,8 @@ class main:
             power_req = temp_array[6]
             num_shots = temp_array[7]
             use_missle = temp_array[8]
-            weapon.append(Weapons.Weapons.CreateWeapon(ship_name, int(slide_width), int(slide_height), int(num_slides), int(attack_dmg), int(attack_spd)))
+            backwards = temp_array[9]
+            weapon.append(Weapons.Weapons.CreateWeapon(ship_name, int(slide_width), int(slide_height), int(num_slides), int(attack_dmg), int(attack_spd), int(power_req), int(num_shots), int(use_missle), backwards))
         
         
     def Update():

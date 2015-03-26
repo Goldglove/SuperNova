@@ -13,6 +13,7 @@ class Weapons():
     global height
     global atk_speed
     global atk_timer
+    global reverse_animate
     #This currently only draws one weapon. pic_name is overridden. pic_name should
     #be an array.
     def InitArrays():
@@ -23,7 +24,9 @@ class Weapons():
         global height
         global atk_spd
         global atk_timer
+        global reverse_animate
         height = [0]
+        reverse_animate = [""]
         slide_width = [0]
         num_slides = [0]
         cImage = [0]
@@ -32,7 +35,7 @@ class Weapons():
         atk_spd = [0]
         atk_timer = [0]
         
-    def CreateWeapon(pic_name, width, Height, slides, damage, attack_speed):
+    def CreateWeapon(pic_name, width, Height, slides, damage, attack_speed, power_req, num_shots, use_missle, backwards):
         global game_object
         global cImage
         global num_slides
@@ -40,6 +43,7 @@ class Weapons():
         global height
         global atk_spd
         global atk_timer
+        global reverse_animate
         ship_path = os.getcwd() + '\\Images\\Weapons\\' + pic_name
         game_object.append(pg.image.load(ship_path))
         height.append(Height)
@@ -48,6 +52,7 @@ class Weapons():
         cImage.append(1)
         atk_spd.append(attack_speed)
         atk_timer.append(0)
+        reverse_animate.append(backwards)
 
     def Animate():
         #Animation needs to be refined:
@@ -58,9 +63,14 @@ class Weapons():
             atk_timer[i] += 1
             if atk_timer[i] >= atk_spd[i]:
                 atk_timer[i] = 0
-                cImage[i] += 1
-                if cImage[i] > num_slides[i]:
-                    cImage[i] = 1
+                if reverse_animate[i] == "0":
+                    cImage[i] += 1
+                    if cImage[i] > num_slides[i]:
+                        cImage[i] = 1
+                else:
+                    cImage[i] -= 1
+                    if cImage[i] < 0:
+                        cImage[i] = num_slides[i]
         
     def Draw(screen, x, y, index):
         screen.blit(game_object[index], (x, y), (cImage[index] * slide_width[index], 0, slide_width[index], height[index]))
