@@ -14,6 +14,8 @@ class Weapons():
     global atk_speed
     global atk_timer
     global reverse_animate
+    global bullet_x
+    global bullet_y
     def InitArrays():
         global game_object
         global cImage
@@ -23,6 +25,8 @@ class Weapons():
         global atk_spd
         global atk_timer
         global reverse_animate
+        global bullet_x
+        global bullet_y
         height = [0]
         reverse_animate = [""]
         slide_width = [0]
@@ -32,6 +36,8 @@ class Weapons():
         game_object = [0]
         atk_spd = [0]
         atk_timer = [0]
+        bullet_x = 100
+        bullet_y = 200
         
     def CreateWeapon(pic_name, width, Height, slides, damage, attack_speed, power_req, num_shots, use_missle, backwards):
         global game_object
@@ -52,21 +58,14 @@ class Weapons():
         atk_timer.append(0)
         reverse_animate.append(backwards)
 
-    def Shoot(bullet, bullet_speed, init_x, init_y, dest_x, dest_y):
-        global bullet
-        global bullet_speed
-        global init_x
-        global init_y
-        global dest_x
-        global dest_y
+    def Shoot(init_x, init_y, dest_x, dest_y):
         global bullet_x
         global bullet_y
-        #bullet is the image of the bullet being fired
-        #The rest is pretty self explanatory
-        bullet_x= (((init_x ** 0.5)+(dest_x ** 0.5)) ** 2)
-        bullet_y= (((init_y ** 0.5)+(dest_y ** 0.5)) ** 2)
-        #no need to import the math modual if we just use exponents to sqrt things
-        #this code makes no sense... I'll fix it later
+        bullet_x_speed= round((((init_x ** 2)+(dest_x ** 2)) ** 0.5)/150)
+        bullet_y_speed= round((((init_y ** 2)+(dest_y ** 2)) ** 0.5)/150)
+        bullet_x+=bullet_x_speed
+        bullet_y+=bullet_y_speed
+        return (str(bullet_x) + " " + str(bullet_y))
         
     def Animate():
         global cImage
