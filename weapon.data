@@ -1,10 +1,10 @@
 Name slide_width slide_height num_slides attack_dmg attack_speed power_req num_shots use_missle rever_animate
-wep1R.png 26 75 07 3 12 3 1 0 0
-wep1L.png 26 75 07 3 12 3 1 0 1
-wep2R.png 20 79 06 1 03 2 1 0 0
-wep2L.png 20 79 06 1 03 2 1 0 1
-wep3R.png 33 83 10 5 18 4 1 0 0
-wep3L.png 33 83 10 5 18 4 1 0 1
+wep1R.png 26 75 07 3 12 3 1 0 1
+wep1L.png 26 75 07 3 12 3 1 0 0
+wep2R.png 20 79 06 1 03 2 1 0 1
+wep2L.png 20 79 06 1 03 2 1 0 0
+wep3R.png 33 83 10 5 18 4 1 0 1
+wep3L.png 33 83 10 5 18 4 1 0 0
 wep4R.png 23 60 14 1 12 3 3 0 0
 wep4L.png 23 60 14 1 12 3 3 0 1
 wep5R.png 26 43 04 1 09 1 2 1 0

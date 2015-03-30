@@ -46,9 +46,16 @@ class main:
         screen.fill(white)
         Player.Player.Draw(screen)
         Enemy.Enemy.Draw(screen)
-        Weapons.Weapons.Draw(screen, 20, 0, 3)
-        Weapons.Weapons.Draw(screen, 20, 200, 7)
-        Weapons.Weapons.Draw(screen, 20, 400, 1)
+        Weapons.Weapons.Draw(screen, 20, 0, 1) #Weapon 1
+        Weapons.Weapons.Draw(screen, 20, 200, 2) #Weapon 2
+        Weapons.Weapons.Draw(screen, 20, 400, 3) #Weapon 3
+        Weapons.Weapons.Draw(screen, 50, 400, 4) #Weapon 4
+        Weapons.Weapons.Draw(screen, 50, 0, 5) #Weapon 1
+        Weapons.Weapons.Draw(screen, 50, 200, 6) #Weapon 2
+        Weapons.Weapons.Draw(screen, 50, 400, 7) #Weapon 3
+        Weapons.Weapons.Draw(screen, 100, 400, 8) #Weapon 4
+        Weapons.Weapons.Draw(screen, 100, 400, 9) #Weapon 3
+        Weapons.Weapons.Draw(screen, 100, 200, 10) #Weapon 4
         pg.time.delay(60)
         pg.display.flip()
 
