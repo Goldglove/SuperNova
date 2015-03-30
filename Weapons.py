@@ -14,8 +14,6 @@ class Weapons():
     global atk_speed
     global atk_timer
     global reverse_animate
-    #This currently only draws one weapon. pic_name is overridden. pic_name should
-    #be an array.
     def InitArrays():
         global game_object
         global cImage
@@ -54,9 +52,23 @@ class Weapons():
         atk_timer.append(0)
         reverse_animate.append(backwards)
 
+    def Shoot(bullet, bullet_speed, init_x, init_y, dest_x, dest_y):
+        global bullet
+        global bullet_speed
+        global init_x
+        global init_y
+        global dest_x
+        global dest_y
+        global bullet_x
+        global bullet_y
+        #bullet is the image of the bullet being fired
+        #The rest is pretty self explanatory
+        bullet_x= (((init_x ** 0.5)+(dest_x ** 0.5)) ** 2)
+        bullet_y= (((init_y ** 0.5)+(dest_y ** 0.5)) ** 2)
+        #no need to import the math modual if we just use exponents to sqrt things
+        #this code makes no sense... I'll fix it later
+        
     def Animate():
-        #Animation needs to be refined:
-        #Should draw frames based on how charged the weapon is, then animate the firing
         global cImage
         global atk_timer
         for i in range(len(cImage)):
