@@ -1,4 +1,4 @@
-import Main, os, GameObject
+import Main, os
 import pygame as pg
 
 class Enemy:

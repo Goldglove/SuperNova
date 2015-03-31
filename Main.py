@@ -1,5 +1,5 @@
 import pygame as pg
-import GameObject, Weapons, Player, Enemy
+import Weapons, Player, Enemy
 import sys, os
 
 game_running = True
