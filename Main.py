@@ -4,9 +4,6 @@ import sys, os
 
 game_running = True
 
-wep_data = open("weapon.data", 'r')
-wep_data.readline()
-
 #Colour Dictionary
 red = (255,0,0)
 green = (0,255,0)
@@ -53,7 +50,8 @@ class main:
         pg.display.flip()
 
     def LoadWeapon():
-    #will add the reverse animate during tomorros class
+        wep_data = open("weapon.data", 'r')
+        wep_data.readline()
         i = 0
         for line in wep_data:
             i += 1
@@ -71,13 +69,12 @@ class main:
             use_missle = temp_array[8]
             backwards = temp_array[9]
             weapon.append(Weapons.Weapons.CreateWeapon(ship_name, int(slide_width), int(slide_height), int(num_slides), int(attack_dmg), int(attack_spd), int(power_req), int(num_shots), int(use_missle), backwards))
-        
+        wep_data.close()
         
     def Update():
         Weapons.Weapons.Animate()
         
     def Quit():
-        wep_data.close()
         pg.quit()
         sys.exit()
         
